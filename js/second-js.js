@@ -117,26 +117,41 @@
 //   return result;
 // }
 
-const numbers = [1, 2, 3, 4];
-const value = 3;
-function filterArray(numbers, value) {
-  // Change code below this line
-  for (let i = i > value; i < numbers.length; i += 1) {
-    if (value >= numbers.length) {
-      numbers.push(i);
-    }
-  }
-  return numbers;
-  // Change code above this line
-}
-function filterArray(numbers, value) {
-  // Change code below this line
+// const numbers = [1, 2, 3, 4];
+// const value = 3;
+// function filterArray(numbers, value) {
+//   // Change code below this line
+//   for (let i = i > value; i < numbers.length; i += 1) {
+//     if (value >= numbers.length) {
+//       numbers.push(i);
+//     }
+//   }
+//   return numbers;
+//   // Change code above this line
+// }
+// function filterArray(numbers, value) {
+//   // Change code below this line
 
-  for (let i = i > value; i < numbers.length; i += 1) {
-    if (value >= numbers.length - 1) {
-      numbers.push(i);
-    }
-  }
-  return numbers;
-  // Change code above this line
-}
+//   for (let i = i > value; i < numbers.length; i += 1) {
+//     if (value >= numbers.length - 1) {
+//       numbers.push(i);
+//     }
+//   }
+//   return numbers;
+//   // Change code above this line
+// }
+// FizzBuzz.Напишите программу, которая выводит через console.log все числа от 1 до 100,
+//   с двумя исключениями.Для чисел, нацело делящихся на 3, она должна выводить ‘Fizz’,
+//   а для чисел, делящихся на 5(но не на 3) – ‘Buzz’.Когда сумеете – исправьте её так,
+//   чтобы она выводила «FizzBuzz» для всех чисел, которые делятся и на 3 и на 5.
+// function filterNumbers(min, max) {
+//   for (i = min; i <= max; i += 1) {
+//     i = ai % 3 === 0 && i % 5 === 0) {
+//       console.log(`${i}- FizzBuzz`);
+//     } else {
+//       console.log(`${i}`);
+//     }
+//   }
+//   return;
+// }
+// filterNumbers(0, 100);
