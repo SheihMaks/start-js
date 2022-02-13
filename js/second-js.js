@@ -155,3 +155,51 @@
 //   return;
 // }
 // filterNumbers(0, 100);
+// function getSum(a, b) {
+//   let total = 0;
+//   let aTemp = a;
+//   let bTemp = b;
+//   if (a === b) {
+//     return b;
+//   } else if (a > b) {
+//     a = bTemp;
+//     b = aTemp;
+//   }
+//   for (let i = a; i <= b; i += 1) {
+//     total += i;
+//     return total;
+//   }
+//   //Good luck!
+// }
+// getSum(5, 7);
+// function getSum(a, b) {
+//   let total = 0;
+//   let aTemp = a;
+//   let bTemp = b;
+//   if (aTemp === bTemp) {
+//     return a;
+//   } else if (a > b) {
+//     a = bTemp;
+//     b = aTemp;
+//   }
+//   for (let i = a; i <= b; i += 1) {
+//     total += i;
+//   }
+//   return total;
+// }
+// getSum(5, 7);
+function findOutlier(integers) {
+  let outlier;
+  for (let i = 0; i < integers.length; i += 1) {
+    outlier = integers[i] % 2 !== 0;
+    if (
+      (integers[0] % 2 !== 0 && integers[1] % 2 !== 0) ||
+      (integers[1] % 2 !== 0 && integers[2] % 2 !== 0) ||
+      (integers[0] % 2 !== 0 && integers[2] % 2 !== 0)
+    ) {
+      outlier = integers[i] % 2 === 0;
+    }
+  }
+  return outlier;
+}
+findOutlier(1, 2, 3);
