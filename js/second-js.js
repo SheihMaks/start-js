@@ -192,13 +192,14 @@ function findOutlier(integers) {
   let outlier;
   let count = 0;
   for (let i = 0; i < integers.length; i += 1) {
-    if (integers[i] % 2 !== 0 || integers[i] === 1) {
+    if (integers[i] === 1 || integers[i] % 2 !== 0) {
       count += 1;
-    }
-    outlier = count > 1 ? integers[i] % 2 === 0 : integers[i] % 2 !== 0;
-  }
 
-  return outlier;
+      outlier = count > 1 ? integers[i] % 2 === 0 : integers[i] % 2 !== 0;
+    }
+
+    return outlier;
+  }
 }
 
 findOutlier(1, 2, 3);
