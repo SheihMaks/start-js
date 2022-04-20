@@ -799,7 +799,16 @@ const players = [
   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
 ];
+console.table(players);
+const namePlayerUpdate = "Ajax";
+const updatePlaytimeByName = players.map((player) =>
+  namePlayerUpdate === player.name
+    ? { ...player, playtime: player.playtime + 1000 }
+    : player
+);
 // Change code below this line
+
+console.table(updatePlaytimeByName);
 
 const totalAveragePlaytimePerGame = players.reduce(
   (prev, player) => prev + player.playtime / player.gamesPlayed,
@@ -815,85 +824,103 @@ const tweets = [
   { id: "003", likes: 8, tags: ["css", "react"] },
   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 ];
+console.table(tweets);
+// const updateLike = tweets.map((tweet) => ({
+//   ...tweet,
+//   likes: tweet.likes * 2,
+// }));
 
+// console.log(updateLike);
+const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+console.log(allTags);
+countOfTags = allTags.reduce(
+  (acc, tag) => ({ ...acc, [tag]: acc[tag] ? acc[tag] + 1 : 1 }),
+  {}
+);
+console.log(countOfTags);
+const idLikes = "001";
+const updateLikes = tweets.map((tweet) =>
+  idLikes === tweet.id ? { ...tweet, likes: tweet.likes * 10 } : tweet
+);
+console.table(updateLikes);
 // Пройдем по всем элементам коллекции и прибавим значения свойства likes
 // к аккумулятору, начальное значение которого укажем 0.
-const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
+// const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
 
-console.log(likes); // 32
+// console.log(likes); // 32
 
-const users = [
-  {
-    name: "Moore Hensley",
-    email: "moorehensley@indexia.com",
-    eyeColor: "blue",
-    friends: ["Sharron Pace"],
-    isActive: false,
-    balance: 2811,
-    gender: "male",
-  },
-  {
-    name: "Sharlene Bush",
-    email: "sharlenebush@tubesys.com",
-    eyeColor: "blue",
-    friends: ["Briana Decker", "Sharron Pace"],
-    isActive: true,
-    balance: 3821,
-    gender: "female",
-  },
-  {
-    name: "Ross Vazquez",
-    email: "rossvazquez@xinware.com",
-    eyeColor: "green",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-    isActive: false,
-    balance: 3793,
-    gender: "male",
-  },
-  {
-    name: "Elma Head",
-    email: "elmahead@omatom.com",
-    eyeColor: "green",
-    friends: ["Goldie Gentry", "Aisha Tran"],
-    isActive: true,
-    balance: 2278,
-    gender: "female",
-  },
-  {
-    name: "Carey Barr",
-    email: "careybarr@nurali.com",
-    eyeColor: "blue",
-    friends: ["Jordan Sampson", "Eddie Strong"],
-    isActive: true,
-    balance: 3951,
-    gender: "male",
-  },
-  {
-    name: "Blackburn Dotson",
-    email: "blackburndotson@furnigeer.com",
-    eyeColor: "brown",
-    friends: ["Jacklyn Lucas", "Linda Chapman"],
-    isActive: false,
-    balance: 1498,
-    gender: "male",
-  },
-  {
-    name: "Sheree Anthony",
-    email: "shereeanthony@kog.com",
-    eyeColor: "brown",
-    friends: ["Goldie Gentry", "Briana Decker"],
-    isActive: true,
-    balance: 2764,
-    gender: "female",
-  },
-];
-const getSortedFriends = users
+// const users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female",
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male",
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female",
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male",
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female",
+//   },
+// ];
+// const getSortedFriends = users
 
-  .flatMap((user) => user.friends)
-  .sort((a, b) => a.localeCompare(b))
-  .filter((friend, i, users) => users.indexOf(friend) === i);
-console.log(getSortedFriends);
-console.log(users);
+//   .flatMap((user) => user.friends)
+//   .sort((a, b) => a.localeCompare(b))
+//   .filter((friend, i, users) => users.indexOf(friend) === i);
+// console.log(getSortedFriends);
+// console.log(users);
 // const getNamesSortedByFriendCount = [...users]
 //   .sort((a, b) => a.name.localeCompare(b.name.length))
 //   .map((user) => user.name);
@@ -1025,3 +1052,434 @@ console.log(users);
 //   }
 // }
 // console.log(Admin.AccesLevel.SUPERUSER);
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   // Change code below this line
+
+//   static AccessLevel = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+//   constructor({ email, accessLevel, blacklistedEmails = [] }) {
+//     super(email);
+//     this.accessLevel = accessLevel;
+//     this.blacklistedEmails = blacklistedEmails;
+//   }
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+//   isBlacklisted(email) {
+//     this.blacklistedEmails.includes(email);
+//   }
+//   // Change code above this line
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+// console.log(mango);
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+// console.log(mango.blacklistedEmails);
+// mango.blacklist("poly@mail.com");
+// console.log(mango);
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
+
+// const User = function ({ email, password } = {}) {
+//   this.email = email;
+//   this.password = password;
+// };
+// User.prototype.changeEmail = function (newEmail) {
+//   this.email = newEmail;
+// };
+// const maksim = new User({
+//   email: "sheihmaks@yandex.ru",
+//   password: 230287,
+// });
+// User.prototype.changePassword = function (newPassword) {
+//   this.password = newPassword;
+// };
+// console.log(maksim);
+// maksim.changeEmail("sheihmaks@gmail.com");
+// console.log(maksim);
+// maksim.changePassword(1108);
+// console.log(maksim);
+
+const Bag = function ({ size, sex, material } = {}) {
+  this.size = size;
+  this.sex = sex;
+  this.material = material;
+};
+Bag.prototype.changeMaterial = function (newMaterial) {
+  this.material = newMaterial;
+};
+Bag.prototype.changeSex = function (newSex) {
+  this.sex = newSex;
+};
+Bag.prototype.changeSize = function (newSize) {
+  this.size = newSize;
+};
+const gucci = new Bag({
+  size: "small",
+  sex: "female",
+  material: "leather",
+});
+console.log(gucci);
+gucci.changeMaterial("ECO-leather");
+console.log(gucci);
+gucci.changeSex("male");
+console.log(gucci);
+gucci.changeSize("big");
+console.log(gucci);
+console.log(Bag.prototype);
+
+const User = function ({ login, email } = {}) {
+  this.login = login;
+  this.email = email;
+};
+
+User.prototype.changeEmail = function (newEmail) {
+  this.email = newEmail;
+};
+const svetlana = new User({
+  login: "svetlana",
+  email: "sveta01101985@gmail.com",
+});
+console.log(svetlana);
+svetlana.changeEmail("alekseeva01101985@gmail.com");
+console.log(svetlana);
+//========================================PLUGIN=================================================
+const CounterPlugin = function ({
+  rootSelector,
+  initialValue = 0,
+  step = 1,
+} = {}) {
+  this._value = initialValue;
+  this._step = step;
+  this._refs = this._getRefs(rootSelector);
+  this._bindEvents();
+  this.updateValueUI();
+};
+
+CounterPlugin.prototype._getRefs = function (rootSelector) {
+  console.log(rootSelector);
+  const refs = {};
+  refs.container = document.querySelector(rootSelector);
+  refs.incrementBtn = refs.container.querySelector("[data-increment]");
+  refs.decrementBtn = refs.container.querySelector("[data-decrement]");
+  refs.value = refs.container.querySelector("[data-value]");
+  console.log(refs.container);
+  return refs;
+};
+
+CounterPlugin.prototype._bindEvents = function () {
+  this._refs.incrementBtn.addEventListener("click", () => {
+    console.log("CounterPlugin.prototype._bindEvents->this", this);
+    this.increment();
+    this.updateValueUI();
+  });
+  this._refs.decrementBtn.addEventListener("click", () => {
+    console.log("CounterPlugin.prototype._bindEvents->this", this);
+
+    this.decrement();
+    this.updateValueUI();
+  });
+};
+
+CounterPlugin.prototype.updateValueUI = function () {
+  this._refs.value.textContent = this._value;
+};
+
+CounterPlugin.prototype.increment = function () {
+  this._value += this._step;
+};
+
+CounterPlugin.prototype.decrement = function () {
+  this._value -= this._step;
+};
+
+const counter1 = new CounterPlugin({
+  rootSelector: "#counter-1",
+  step: 20,
+});
+console.log("counter1", counter1);
+
+const counter2 = new CounterPlugin({
+  rootSelector: "#counter-2",
+  step: 2,
+});
+console.log("counter2", counter2);
+// counter1.increment();
+// counter1.increment();
+// counter1.decrement();
+// console.log(counter1);
+
+const orks = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+console.table(orks);
+
+const updateAllPlaytime = orks.map((ork) => ({
+  ...ork,
+  playtime: (ork.playtime += 1000),
+}));
+const minPlaytime = 2;
+const updatePlaytime = orks.map((ork) =>
+  minPlaytime < ork.gamesPlayed
+    ? { ...ork, gamesPlayed: (ork.gamesPlayed += 2) }
+    : ork
+);
+
+const updateName = orks.map((ork) =>
+  ork.name === "Ajax" ? { ...ork, name: "Maks" } : ork
+);
+console.table(updateName);
+console.table(updatePlaytime);
+
+class Product {
+  #name;
+  constructor({ name, quantity, quality }) {
+    this.#name = name;
+    this.quantity = quantity;
+    this.quality = quality;
+  }
+  get nameProduct() {
+    return this.#name;
+  }
+
+  set nameProduct(newName) {
+    this.#name = newName;
+  }
+}
+
+class Fruct extends Product {
+  constructor({ type, ...args }) {
+    super({ ...args });
+    this.type = type;
+  }
+}
+
+const fruct = new Fruct({
+  type: "citric",
+  name: "Orange",
+  quantity: 5,
+  quality: "high",
+});
+0;
+console.log(fruct);
+// console.log(fruct.getListProducts());
+console.log(fruct.nameProduct);
+console.log((fruct.nameProduct = "Mandarin"));
+console.log(fruct);
+// =====================================СОРТИРОРВКА ЧИСЕЛ====================
+const numbers = [8, 5, 4, 7, 9, 1, 4, 2, 6, 3];
+// const copy = [...numbers];
+// const sortedNumbers = copy.sort((a, b) => a - b);
+const sortedNumbers = [...numbers].sort((a, b) => a - b);
+
+const filteredArray = numbers.filter((num) => num > 5);
+
+// =====================================СОРТИРОРВКА СТРОК====================
+
+const users = [
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male",
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female",
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male",
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female",
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    gender: "male",
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    gender: "male",
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female",
+  },
+];
+
+const sortedUsers = [...users].sort((a, b) => {
+  const result = a.name[0] > b.name[0];
+  if (result) {
+    return 1;
+  }
+  if (!result) {
+    return -1;
+  }
+});
+console.log(sortedUsers);
+const sorted = [...users].sort((a, b) => {
+  const res = a.name[0] > b.name[0];
+  if (res) {
+    return -1;
+  }
+  if (!res) {
+    return 1;
+  }
+});
+console.log(sorted);
+// =================================================================================================
+
+const friends = [...users]
+  .flatMap((user) => user.friends)
+  .sort((a, b) => {
+    const res = a[0] > b[0];
+    if (res) {
+      return -1;
+    }
+    if (!res) {
+      return 1;
+    }
+  });
+console.log(friends);
+console.log(filteredArray);
+console.log(sortedNumbers);
+
+console.log(numbers);
+
+const redFriends = users
+  .reduce((acc, user) => [...acc, ...user.friends], [])
+  .sort((a, b) => {
+    const res = a[0] > b[0];
+    if (res) {
+      return 1;
+    }
+    if (!res) {
+      return -1;
+    }
+  });
+console.log(redFriends);
+
+const allFriends = users.reduce((friendList, user) => {
+  console.log(...user.friends);
+  friendList.push(...user.friends);
+
+  return friendList;
+}, []);
+console.log(allFriends);
+
+const countTagsByName = allFriends.reduce(
+  (acc, friend) => ({ ...acc, [friend]: acc[friend] ? acc[friend] + 1 : 1 }),
+  {}
+);
+
+console.log(countTagsByName);
+
+const user = {
+  name: "Mango",
+};
+console.log(user["name"]);
+const key = "name";
+console.log(user[key]);
+
+const showTag = function () {
+  console.log("showTag->this", this);
+  console.log("showTag->this.tag", this.tag);
+};
+const uber = {
+  tag: "Maximus",
+};
+uber.showUserTag = showTag;
+console.log(uber);
+uber.showUserTag();
+
+const counterRepeta = {
+  value: 0,
+  increment() {
+    this.value += 1;
+  },
+  decrement() {
+    this.value -= 1;
+  },
+};
+
+// const updateCounter = function (value, callback) {
+//   callback(value);
+// };
+
+// updateCounter(50, counterRepeta.increment.bind(counterRepeta));
+// console.log(counterRepeta);
+// updateCounter(10, counterRepeta.decrement.bind(counterRepeta));
+// console.log(counterRepeta);
+const btnIncr = document.querySelector(".js-increment");
+const valueJs = document.querySelector(".js-value");
+const btnDecr = document.querySelector(".js-decrement");
+console.log(btnIncr);
+btnIncr.addEventListener("click", function () {
+  counterRepeta.increment();
+  valueJs.textContent = counterRepeta.value;
+});
+btnDecr.addEventListener("click", function () {
+  counterRepeta.decrement();
+  valueJs.textContent = counterRepeta.value;
+});
