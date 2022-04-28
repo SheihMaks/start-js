@@ -1461,6 +1461,7 @@ const counterRepeta = {
   decrement() {
     this.value -= 1;
   },
+  updateValue() {},
 };
 
 // const updateCounter = function (value, callback) {
@@ -1483,3 +1484,15 @@ btnDecr.addEventListener("click", function () {
   counterRepeta.decrement();
   valueJs.textContent = counterRepeta.value;
 });
+
+const titleEl = document.createElement("h1");
+titleEl.classList.add("title__page");
+titleEl.textContent = "Это заголовок №1";
+console.log(titleEl);
+document.body.appendChild(titleEl);
+const imageUkr = document.createElement("img");
+imageUkr.classList.add("image");
+imageUkr.src =
+  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fodessa-life.od.ua%2Fnews%2Fjetot-den-istorii-kogda-sine-zheltyj-flag-stal-gosudarstvennym-simvolom-ukrainy&psig=AOvVaw3ldXSTeTVw2FT0hcd5B6c4&ust=1650562396591000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKC976WWo_cCFQAAAAAdAAAAABAD";
+imageUkr.alt = "Флаг Украины";
+document.body.appendChild(imageUkr);
