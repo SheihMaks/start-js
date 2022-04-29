@@ -1496,3 +1496,11 @@ imageUkr.src =
   "https://www.google.com/url?sa=i&url=https%3A%2F%2Fodessa-life.od.ua%2Fnews%2Fjetot-den-istorii-kogda-sine-zheltyj-flag-stal-gosudarstvennym-simvolom-ukrainy&psig=AOvVaw3ldXSTeTVw2FT0hcd5B6c4&ust=1650562396591000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKC976WWo_cCFQAAAAAdAAAAABAD";
 imageUkr.alt = "Флаг Украины";
 document.body.appendChild(imageUkr);
+
+const buttonsRef = docoment.querySelector(".container-js");
+const onClick = (event) => {
+  if (event.target.nodeName !== "BUTTON") {
+    return;
+  }
+};
+buttonsRef.addEventListener("click", onClick);
