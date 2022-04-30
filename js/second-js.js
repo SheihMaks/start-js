@@ -1497,10 +1497,17 @@ imageUkr.src =
 imageUkr.alt = "Флаг Украины";
 document.body.appendChild(imageUkr);
 
-const buttonsRef = docoment.querySelector(".container-js");
+const buttonsRef = document.querySelector(".container-js");
 const onClick = (event) => {
+  console.dir(event.target.nodeName);
+
   if (event.target.nodeName !== "BUTTON") {
     return;
   }
+  const currentClass = document.querySelector(".active");
+  if (currentClass) {
+    currentClass.classList.remove("active");
+  }
+  event.target.classList.add("active");
 };
 buttonsRef.addEventListener("click", onClick);
