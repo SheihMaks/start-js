@@ -1167,71 +1167,71 @@ console.log(svetlana);
 svetlana.changeEmail("alekseeva01101985@gmail.com");
 console.log(svetlana);
 //========================================PLUGIN=================================================
-const CounterPlugin = function ({
-  rootSelector,
-  initialValue = 0,
-  step = 1,
-} = {}) {
-  this._value = initialValue;
-  this._step = step;
-  this._refs = this._getRefs(rootSelector);
-  this._bindEvents();
-  this.updateValueUI();
-};
+// const CounterPlugin = function ({
+//   rootSelector,
+//   initialValue = 0,
+//   step = 1,
+// } = {}) {
+//   this._value = initialValue;
+//   this._step = step;
+//   this._refs = this._getRefs(rootSelector);
+//   this._bindEvents();
+//   this.updateValueUI();
+// };
 
-CounterPlugin.prototype._getRefs = function (rootSelector) {
-  console.log(rootSelector);
-  const refs = {};
-  refs.container = document.querySelector(rootSelector);
-  refs.incrementBtn = refs.container.querySelector("[data-increment]");
-  refs.decrementBtn = refs.container.querySelector("[data-decrement]");
-  refs.value = refs.container.querySelector("[data-value]");
-  console.log(refs.container);
-  return refs;
-};
+// CounterPlugin.prototype._getRefs = function (rootSelector) {
+//   console.log(rootSelector);
+//   const refs = {};
+//   refs.container = document.querySelector(rootSelector);
+//   refs.incrementBtn = refs.container.querySelector("[data-increment]");
+//   refs.decrementBtn = refs.container.querySelector("[data-decrement]");
+//   refs.value = refs.container.querySelector("[data-value]");
+//   console.log(refs.container);
+//   return refs;
+// };
 
-CounterPlugin.prototype._bindEvents = function () {
-  this._refs.incrementBtn.addEventListener("click", () => {
-    console.log("CounterPlugin.prototype._bindEvents->this", this);
-    this.increment();
-    this.updateValueUI();
-  });
-  this._refs.decrementBtn.addEventListener("click", () => {
-    console.log("CounterPlugin.prototype._bindEvents->this", this);
+// CounterPlugin.prototype._bindEvents = function () {
+//   this._refs.incrementBtn.addEventListener("click", () => {
+//     console.log("CounterPlugin.prototype._bindEvents->this", this);
+//     this.increment();
+//     this.updateValueUI();
+//   });
+//   this._refs.decrementBtn.addEventListener("click", () => {
+//     console.log("CounterPlugin.prototype._bindEvents->this", this);
 
-    this.decrement();
-    this.updateValueUI();
-  });
-};
+//     this.decrement();
+//     this.updateValueUI();
+//   });
+// };
 
-CounterPlugin.prototype.updateValueUI = function () {
-  this._refs.value.textContent = this._value;
-};
+// CounterPlugin.prototype.updateValueUI = function () {
+//   this._refs.value.textContent = this._value;
+// };
 
-CounterPlugin.prototype.increment = function () {
-  this._value += this._step;
-};
+// CounterPlugin.prototype.increment = function () {
+//   this._value += this._step;
+// };
 
-CounterPlugin.prototype.decrement = function () {
-  this._value -= this._step;
-};
+// CounterPlugin.prototype.decrement = function () {
+//   this._value -= this._step;
+// };
 
-const counter1 = new CounterPlugin({
-  rootSelector: "#counter-1",
-  step: 20,
-});
-console.log("counter1", counter1);
+// const counter1 = new CounterPlugin({
+//   rootSelector: "#counter-1",
+//   step: 20,
+// });
+// console.log("counter1", counter1);
 
-const counter2 = new CounterPlugin({
-  rootSelector: "#counter-2",
-  step: 2,
-});
-console.log("counter2", counter2);
+// const counter2 = new CounterPlugin({
+//   rootSelector: "#counter-2",
+//   step: 2,
+// });
+// console.log("counter2", counter2);
 // counter1.increment();
 // counter1.increment();
 // counter1.decrement();
 // console.log(counter1);
-
+// =================================================================
 const orks = [
   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
   { name: "Poly", playtime: 469, gamesPlayed: 2 },
@@ -1452,17 +1452,17 @@ const uber = {
 uber.showUserTag = showTag;
 console.log(uber);
 uber.showUserTag();
-
-const counterRepeta = {
-  value: 0,
-  increment() {
-    this.value += 1;
-  },
-  decrement() {
-    this.value -= 1;
-  },
-  updateValue() {},
-};
+// =======================================================================================counter
+// const counterRepeta = {
+//   value: 0,
+//   increment() {
+//     this.value += 1;
+//   },
+//   decrement() {
+//     this.value -= 1;
+//   },
+//   updateValue() {},
+// };
 
 // const updateCounter = function (value, callback) {
 //   callback(value);
@@ -1472,42 +1472,46 @@ const counterRepeta = {
 // console.log(counterRepeta);
 // updateCounter(10, counterRepeta.decrement.bind(counterRepeta));
 // console.log(counterRepeta);
-const btnIncr = document.querySelector(".js-increment");
-const valueJs = document.querySelector(".js-value");
-const btnDecr = document.querySelector(".js-decrement");
-console.log(btnIncr);
-btnIncr.addEventListener("click", function () {
-  counterRepeta.increment();
-  valueJs.textContent = counterRepeta.value;
-});
-btnDecr.addEventListener("click", function () {
-  counterRepeta.decrement();
-  valueJs.textContent = counterRepeta.value;
-});
-
-const titleEl = document.createElement("h1");
-titleEl.classList.add("title__page");
-titleEl.textContent = "Это заголовок №1";
-console.log(titleEl);
-document.body.appendChild(titleEl);
-const imageUkr = document.createElement("img");
-imageUkr.classList.add("image");
-imageUkr.src =
-  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fodessa-life.od.ua%2Fnews%2Fjetot-den-istorii-kogda-sine-zheltyj-flag-stal-gosudarstvennym-simvolom-ukrainy&psig=AOvVaw3ldXSTeTVw2FT0hcd5B6c4&ust=1650562396591000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKC976WWo_cCFQAAAAAdAAAAABAD";
-imageUkr.alt = "Флаг Украины";
-document.body.appendChild(imageUkr);
+// const btnIncr = document.querySelector(".js-increment");
+// const valueJs = document.querySelector(".js-value");
+// const btnDecr = document.querySelector(".js-decrement");
+// console.log(btnIncr);
+// btnIncr.addEventListener("click", function () {
+//   counterRepeta.increment();
+//   valueJs.textContent = counterRepeta.value;
+// });
+// btnDecr.addEventListener("click", function () {
+//   counterRepeta.decrement();
+//   valueJs.textContent = counterRepeta.value;
+// });
+// ======================================================================================
+// const titleEl = document.createElement("h1");
+// titleEl.classList.add("title__page");
+// titleEl.textContent = "Это заголовок №1";
+// console.log(titleEl);
+// document.body.appendChild(titleEl);
+// const imageUkr = document.createElement("img");
+// imageUkr.classList.add("image");
+// imageUkr.src =
+//   "https://www.google.com/url?sa=i&url=https%3A%2F%2Fodessa-life.od.ua%2Fnews%2Fjetot-den-istorii-kogda-sine-zheltyj-flag-stal-gosudarstvennym-simvolom-ukrainy&psig=AOvVaw3ldXSTeTVw2FT0hcd5B6c4&ust=1650562396591000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKC976WWo_cCFQAAAAAdAAAAABAD";
+// imageUkr.alt = "Флаг Украины";
+// document.body.appendChild(imageUkr);
 
 const buttonsRef = document.querySelector(".container-js");
-const onClick = (event) => {
-  console.dir(event.target.nodeName);
+let selectedTag = null;
+console.dir(buttonsRef);
+buttonsRef.addEventListener("click", onClick);
+function onClick(event) {
+  console.log(event);
 
   if (event.target.nodeName !== "BUTTON") {
     return;
   }
   const currentClass = document.querySelector(".active");
-  if (currentClass) {
-    currentClass.classList.remove("active");
-  }
-  event.target.classList.add("active");
-};
-buttonsRef.addEventListener("click", onClick);
+
+  currentClass?.classList.remove("active");
+  const x = event.target;
+  x.classList.add("active");
+  selectedTag = x.dataset.value;
+  console.log(selectedTag);
+}
